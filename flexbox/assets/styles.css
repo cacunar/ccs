@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  margin: 0;
+  height: 100vh;
+  max-width: 350px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: 1px solid gray;
+  overflow-y: auto;
+}
+
+.avatarContainer {
+  width: 50px;
+}
+
+.avatar {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 90%;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.userDetailsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Open Sans";
+  font-weight: 500;
+  width: 100%;
+  margin-top: 5px;
+  padding-right: 20px;
+
+}
+
+.userStatus {
+  margin-left: -50%;
+  line-height: 1.1em;
+}
+.userDetailsContainer .userStatus em {
+  color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-size: 12px;
+  text-wrap: nowrap;
+}
+
+.userOptions{
+  display: flex;
+  text-align: center;
+  align-items: left;
+}
+
+.userOptions i {
+  color: gray;
+  margin: 10%;
+}/*# sourceMappingURL=styles.css.map */
+
+.button {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  > button{
+    
+    height: 50px;
+    width: 200px;
+    color: white;
+    background-color: rgb(175, 98, 247);
+    border-color: rgb(175, 98, 247);
+  }
+}
+
+.gap {
+  padding: 10px;
+}
+
+.sidebar::-webkit-scrollbar{
+  display: none;
+}
+
+.sidebarContent {
+  display: flex;
+  left: 70%;
+  top: 50%;
+  transform: translate(-80%, -50%);
+  float: left;
+  position: absolute;
+  font-family: "Open Sans";
+  font-weight: 500;
+}
+
+.content img {
+  height: 300px;
+}
