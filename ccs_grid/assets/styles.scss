@@ -66,6 +66,14 @@
                     background: rgb(177, 176, 176);
                     font-weight: bold;
                 }
+
+                &:visited {
+                    color: rgb(58, 58, 58);
+                  }
+
+                &:active {
+                    font-weight: bold;
+                }
             }
         }
     }

@@ -55,6 +55,12 @@
   background: rgb(177, 176, 176);
   font-weight: bold;
 }
+.gridContainer aside .menu a:visited {
+  color: rgb(58, 58, 58);
+}
+.gridContainer aside .menu a:active {
+  font-weight: bold;
+}
 .gridContainer main {
   grid-area: main;
   background-color: lightgray;
