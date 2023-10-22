@@ -28,7 +28,8 @@
   grid-area: aside;
   background-color: lightgray;
 }
-.gridContainer aside h2, .gridContainer aside .menu {
+.gridContainer aside h2,
+.gridContainer aside .menu {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +90,8 @@
 .gridContainer main .cardContainer .cardBody {
   min-height: 50px;
 }
-.gridContainer main .cardContainer .cardBody h3, .gridContainer main .cardContainer .cardBody p {
+.gridContainer main .cardContainer .cardBody h3,
+.gridContainer main .cardContainer .cardBody p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,4 +121,167 @@
   margin-top: 1%;
   font-family: "Tilt Neon";
   font-weight: 400;
+}
+
+/*Estilos para la vista popup*/
+.cardContainer .popup-view {
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+}
+.cardContainer .popup-view.active {
+  opacity: 1;
+  visibility: visible;
+}
+.cardContainer .popup-card {
+  position: relative;
+  display: flex;
+  width: 800px;
+  height: 500px;
+  margin: 20px;
+}
+.cardContainer .popup-card .product-img {
+  z-index: 2;
+  background: #1d212b;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 45%;
+  height: 90%;
+  transform: translateY(25px);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.cardContainer .popup-card .product-img img {
+  z-index: 2;
+  position: relative;
+  width: 250px;
+  height: 400px;
+  top: 5%;
+}
+.cardContainer .popup-card .product-img .custom-width {
+  width: 400px;
+}
+.cardContainer .popup-card .info {
+  z-index: 2;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40px;
+  border-radius: 10px;
+}
+.cardContainer .popup-card .info h2 {
+  font-size: 40px;
+  line-height: 35px;
+  margin: 10px;
+}
+.cardContainer .popup-card .info h2 span {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.cardContainer .popup-card .info p {
+  font-size: 15px;
+  margin: 10px;
+}
+.cardContainer .popup-card .info .price {
+  font-size: 45px;
+  font-weight: 300;
+  margin: 10px;
+}
+.cardContainer .popup-card .info .add-cart-btn {
+  color: #fff;
+  background: #009DD2;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 10px auto;
+  padding: 10px 50px;
+  border-radius: 20px;
+}
+.cardContainer .popup-card .info .add-wish {
+  color: #009DD2;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+.cardContainer .popup-card .close-btn {
+  color: #555;
+  z-index: 3;
+  position: absolute;
+  right: 0;
+  font-size: 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+/* Estilo responsivo */
+@media (max-width: 900px) {
+  .cardContainer .popup-card {
+    flex-direction: column;
+    width: 550px;
+    height: auto;
+  }
+  .cardContainer .popup-card .product-img {
+    z-index: 3;
+    width: 100%;
+    height: 400px;
+    transform: translateY(0);
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .cardContainer .popup-card .product-img img {
+    left: initial;
+    max-width: 100%;
+  }
+  .cardContainer .popup-card .info {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .cardContainer .popup-card .info h2 {
+    margin: 20px 5px 5px 5px;
+    font-size: 25px;
+  }
+  .cardContainer .popup-card .info h2 span {
+    font-size: 10px;
+  }
+  .cardContainer .popup-card .info p {
+    margin: 5px;
+    font-size: 13px;
+  }
+  .cardContainer .popup-card .info .price {
+    margin: 5px;
+    font-size: 30px;
+  }
+  .cardContainer .popup-card .info .add-cart-btn {
+    margin: 5px auto;
+    padding: 5px 40px;
+    font-size: 14px;
+  }
+  .cardContainer .popup-card .info .add-wish {
+    font-size: 14px;
+  }
+  .cardContainer .popup-card .close-btn {
+    z-index: 4;
+  }
 }/*# sourceMappingURL=styles.css.map */
