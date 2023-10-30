@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
+
+// Breakpoints
+$small: "576px";
+$medium: "768px";
+$large: "992px";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+
+  .dashboard {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "aside"
+      "main"
+      "footer";
+    grid-template-rows: 100px 100px 1fr 100px;
+
+    header {
+      grid-area: header;
+      background-color: #3e59aa;
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        color: white;
+
+        h1 {
+          font-size: 25px;
+          font-weight: 800;
+        }
+
+        figure {
+          width: 50px;
+
+          img {
+            width: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .icon {
+        font-size: 20px;
+      }
+
+      .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        ul {
+          list-style-type: none;
+          line-height: 1.8;
+        }
+      }
+    }
+
+    aside {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      grid-area: aside;
+      background: lightgrey;
+
+      .box {
+        min-width: 300px;
+        height: 30px;
+        background-color: white;
+        border-radius: 10px;
+
+        p {
+          padding: 5px 10px;
+        }
+
+        .arrow {
+          display: flex;
+          margin: -20px 0px 0px 280px;
+        }
+      }
+    }
+
+    main {
+      grid-area: main;
+
+      .cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 50px;
+
+        .cardContainer {
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          border: 1px solid #ddd;
+          width: 80%;
+          display: none;
+
+          &:first-child {
+            display: flex;
+          }
+
+          img {
+            width: 100%;
+            height: 80%;
+          }
+
+          .cardFooter {
+            button {
+              background-color: #3e59aa;
+              height: 30px;
+              width: 80px;
+              color: white;
+            }
+          }
+        }
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        a {
+          color: blue;
+          float: left;
+          padding: 8px 16px;
+          text-decoration: none;
+          transition: background-color 0.3s;
+          border: 1px solid #ddd;
+
+          &:active {
+            background-color: lightgray;
+            color: white;
+            border: 1px solid lightgray;
+          }
+
+          &:hover:not(.active) {
+            background-color: #ddd;
+          }
+        }
+      }
+    }
+
+    footer {
+      grid-area: footer;
+      background: navy;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
+  }
+
+
+@media (min-width: $small) {
+  .dashboard {
+    display: grid;
+    grid-template-areas:
+      "header aside aside aside aside"
+      "header main main main main"
+      "footer main main main main";
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 250px;
+
+    header {
+      height: 100vh;
+      nav {
+        .brand {
+          figure {
+            width: 20px;
+          }
+        }
+        .icon {
+          display: none;
+        }
+      }
+    }
+
+    aside {
+      .box {
+        min-width: 750px;
+
+        .arrow {
+          display: flex;
+          margin: -20px 0px 0px 725px;
+        }
+      }
+    }
+
+    main {
+      .cards {
+        display: grid;
+        flex-direction: column;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+
+        .cardContainer {
+            display: flex;
+          }
+      }
+
+
+    }
+  }
+}
