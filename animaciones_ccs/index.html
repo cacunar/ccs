@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/ccs/styles.css" />
+    <title>Animacion CCS</title>
+    <script
+      src="https://kit.fontawesome.com/1be7bf41eb.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <div class="logoContainer">
+          <div class="logo">
+            <img src="assets/img/logo.png" alt="Logo" />
+          </div>
+          <div class="marca">E-ART</div>
+        </div>
+        <div class="menu-icon" id="menu-icon">
+          <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
+      </nav>
+      <ul class="menu-list" id="menu-list">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </header>
+    <main>
+      <section id="inicio" class="seccion">
+        <div class="inicio-content">
+          <h1>Bienvenido a Nuestra Página</h1>
+          <p>Somos una empresa dedicada a la venta de arte digital</p>
+          <a href="#contacto" class="btn">Contáctanos</a>
+        </div>
+      </section>
+      <section id="galeria" class="seccion">
+        <h2>Galería de Arte Digital</h2>
+        <div class="gallery">
+          <div class="obra">
+            <img
+              src="assets/img/obra1.png"
+              alt="Obra de Arte 1"
+              onclick="openModal('assets/img/obra1.png', 'Título de la Obra 1', 'Descripción de la Obra 1', '$100')"
+            />
+          </div>
+          <div class="obra">
+            <img
+              src="assets/img/obra2.png"
+              alt="Obra de Arte 2"
+              onclick="openModal('assets/img/obra2.png', 'Título de la Obra 2', 'Descripción de la Obra 2', '$200')"
+            />
+          </div>
+          <div class="obra">
+            <img
+              src="assets/img/obra3.png"
+              alt="Obra de Arte 2"
+              onclick="openModal('assets/img/obra3.png', 'Título de la Obra 3', 'Descripción de la Obra 3', '$50')"
+            />
+          </div>
+          <div class="obra">
+            <img
+              src="assets/img/obra4.png"
+              alt="Obra de Arte 2"
+              onclick="openModal('assets/img/obra4.png', 'Título de la Obra 4', 'Descripción de la Obra 4', '$150')"
+            />
+          </div>
+          <div class="obra">
+            <img
+              src="assets/img/obra5.png"
+              alt="Obra de Arte 2"
+              onclick="openModal('assets/img/obra5.png', 'Título de la Obra 5', 'Descripción de la Obra 5', '$500')"
+            />
+          </div>
+          <div class="obra">
+            <img
+              src="assets/img/obra6.png"
+              alt="Obra de Arte 6"
+              onclick="openModal('assets/img/obra6.png', 'Título de la Obra 6', 'Descripción de la Obra 6', '$1000')"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="seccion">
+        <div class="contacto-content">
+          <h2>Contacto</h2>
+          <p>¿Tienes alguna pregunta o comentario? No dudes en contactarnos.</p>
+          <div class="formulario">
+            <input type="text" placeholder="Nombre" />
+            <input type="email" placeholder="Correo Electrónico" />
+            <textarea placeholder="Mensaje"></textarea>
+            <button class="btn">Enviar</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="iconos">
+        <i class="fa-brands fa-facebook" style="color: #ffffff"></i>
+        <i class="fa-brands fa-instagram" style="color: #ffffff"></i>
+      </div>
+      <h4>Todos los derechos reservados</h4>
+    </footer>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-image" id="modal-image" src="" alt="" />
+        <h3 class="modal-title" id="modal-title"></h3>
+        <p class="modal-description" id="modal-description"></p>
+        <p class="modal-cost" id="modal-cost"></p>
+        <button class="modal-button">Comprar</button>
+      </div>
+    </div>
+
+    <script>
+      var menuList = document.getElementById("menu-list");
+      var menuIcon = document.getElementById("menu-icon");
+      var menuVisible = false; 
+
+      function toggleMenu() {
+        if (!menuVisible) {
+          menuList.style.display = "block";
+          menuIcon.style.transform = "rotate(90deg)";
+        } else {
+          menuList.style.display = "none";
+          menuIcon.style.transform = "rotate(0deg)";
+        }
+        menuVisible = !menuVisible; 
+      }
+
+      var menuLinks = document.querySelectorAll(".menu-list a");
+      menuLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          if (window.innerWidth <= 768) {
+            menuList.style.display = "none";
+            menuIcon.style.transform = "rotate(0deg)";
+            menuVisible = false;
+          }
+        });
+      });
+
+      
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          menuList.style.display = "flex";
+          menuList.style.flexDirection = "row";
+          menuIcon.style.transform = "rotate(0deg)";
+          menuVisible = true; 
+        }
+        else {
+          menuList.style.display = "none";
+        }
+      });
+
+      
+      function openModal(image, title, description, cost) {
+        var modal = document.getElementById("myModal");
+        var modalImage = document.getElementById("modal-image");
+        var modalTitle = document.getElementById("modal-title");
+        var modalDescription = document.getElementById("modal-description");
+        var modalCost = document.getElementById("modal-cost");
+
+        modal.style.display = "block";
+        modalImage.src = image;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modalCost.textContent = cost;
+      }
+
+      
+      function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+      }
+
+     
+      window.onclick = function (event) {
+        var modal = document.getElementById("myModal");
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
